@@ -7,22 +7,23 @@ Setup Instructions
 
 1. Clone the Repository
 
-git clone https://github.com/sagar3435/LMS_Project.git
-cd LMS_Project
+  git clone https://github.com/sagar3435/LMS_Project.git
+
+  cd LMS_Project
 
 2. Create & Activate a Virtual Environment
 
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+  python -m venv venv
+  source venv/bin/activate  # Windows: venv\Scripts\activate
 
 3. Install Dependencies
 
-pip install -r requirements.txt
+  pip install -r requirements.txt
 
 4. Run Migrations
 
-python manage.py makemigrations
-python manage.py migrate
+  python manage.py makemigrations
+  python manage.py migrate
 
 5. Run the Server
-python manage.py runserver
+  python manage.py runserver
