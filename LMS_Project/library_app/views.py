@@ -8,6 +8,10 @@ from .permissions import IsAdminUser
 from django.shortcuts import get_object_or_404
 
 class AdminSignupView(APIView):
+    """
+    API endpoint for admin signup.
+    Allows creation of a new admin account.
+    """
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
@@ -18,6 +22,10 @@ class AdminSignupView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class AdminLoginView(APIView):
+    """
+    API endpoint for admin login.
+    Returns access and refresh tokens on valid credentials.
+    """
     permission_classes = [permissions.AllowAny]
 
     def post(self, request):
@@ -32,6 +40,10 @@ class AdminLoginView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class BookCreateView(APIView):
+    """
+    API endpoint to create a new book.
+    Admin authentication required.
+    """
     permission_classes = [IsAdminUser]
 
     def post(self, request):
@@ -43,6 +55,10 @@ class BookCreateView(APIView):
 
 
 class BookListView(APIView):
+    """
+    API endpoint to list all books.
+    Accessible by both admin and students (public view) not required authentication.
+    """
     permission_classes = [permissions.AllowAny]
 
     def get(self, request):
@@ -52,6 +68,10 @@ class BookListView(APIView):
 
 
 class BookUpdateView(APIView):
+    """
+    API endpoint to update book details.
+    Admin authentication required.
+    """
     permission_classes = [IsAdminUser]
 
     def put(self, request, pk):
@@ -64,6 +84,10 @@ class BookUpdateView(APIView):
 
 
 class BookDeleteView(APIView):
+    """
+    API endpoint to delete a book.
+    Admin authentication required.
+    """
     permission_classes = [IsAdminUser]
 
     def delete(self, request, pk):
